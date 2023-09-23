@@ -16,6 +16,27 @@ import "../App.css"
 export default function Canvas() {
   const video = useRef();
   const canvasContainer = useRef();
+  const labels = [{
+    name:"kaif",
+    images:[{
+      id:1,
+      src:"https://e7.pngegg.com/pngimages/352/405/png-clipart-woman-wearing-red-top-and-holding-choc-on-chocolate-pack-katrina-kaif-heroine-bollywood-actor-desktop-katrina-kaif-celebrities-black-hair.png"
+    }]
+  },
+  {
+    name:"salman",
+    images:[
+      {
+        id:1,
+        src:"https://www.nicepng.com/png/detail/95-953248_salman-khan-png-image-race-3-salman-khan.png"
+      },
+      {
+        id:2,
+        src:"https://w7.pngwing.com/pngs/771/120/png-transparent-salman-khan-tiger-zinda-hai-summer-sunglasses-tshirt-blue-desktop-wallpaper-thumbnail.png"
+      }
+    ]
+  }
+  ]
   const startWebcam = async () => {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({video: true});
@@ -24,7 +45,6 @@ export default function Canvas() {
       console.log(err);
     }
   };
-  const labels = [{}];
   Promise.all([
     nets.ssdMobilenetv1.loadFromUri("./models"),
     nets.faceRecognitionNet.loadFromUri("./models"),
@@ -32,20 +52,17 @@ export default function Canvas() {
   ]).then(startWebcam);
 
   const getLabeledFaceDescriptions = () => {
-    const labels = ["Ashish", "Ronak", "kaif"];
     return Promise.all(
       labels.map(async (label) => {
         const descriptions = [];
-        for (let i = 1; i <= 1; i++) {
-          const img = await fetchImage(
-            "https://e7.pngegg.com/pngimages/352/405/png-clipart-woman-wearing-red-top-and-holding-choc-on-chocolate-pack-katrina-kaif-heroine-bollywood-actor-desktop-katrina-kaif-celebrities-black-hair.png"
-          );
+        for (let i = 0; i < label.images.length; i++) {
+          const img = await fetchImage(label.images[i].src);
           const detections = await detectSingleFace(img)
             .withFaceLandmarks()
             .withFaceDescriptor();
           descriptions.push(detections.descriptor);
         }
-        return new LabeledFaceDescriptors(label, descriptions);
+        return new LabeledFaceDescriptors(label.name, descriptions);
       })
     );
   };
@@ -99,8 +116,7 @@ export default function Canvas() {
   return (
     <>
     <div ref={canvasContainer} className="relative w-full flex flex-col items-center">
-      <video ref={video} id="video" width="600" height="600" autoPlay className="absolute h-full"></video>
-
+      <video ref={video} id="video" width="800" height="600" autoPlay className="absolute"></video>
     </div>
 
     </>
