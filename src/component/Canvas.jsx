@@ -18,11 +18,23 @@ export default function Canvas() {
   const canvasContainer = useRef();
   const labels = [{
     name:"kaif",
-    images:["https://e7.pngegg.com/pngimages/352/405/png-clipart-woman-wearing-red-top-and-holding-choc-on-chocolate-pack-katrina-kaif-heroine-bollywood-actor-desktop-katrina-kaif-celebrities-black-hair.png"]
+    images:[{
+      id:1,
+      src:"https://e7.pngegg.com/pngimages/352/405/png-clipart-woman-wearing-red-top-and-holding-choc-on-chocolate-pack-katrina-kaif-heroine-bollywood-actor-desktop-katrina-kaif-celebrities-black-hair.png"
+    }]
   },
   {
     name:"salman",
-    images:["https://www.nicepng.com/png/detail/95-953248_salman-khan-png-image-race-3-salman-khan.png","https://w7.pngwing.com/pngs/771/120/png-transparent-salman-khan-tiger-zinda-hai-summer-sunglasses-tshirt-blue-desktop-wallpaper-thumbnail.png"]
+    images:[
+      {
+        id:1,
+        src:"https://www.nicepng.com/png/detail/95-953248_salman-khan-png-image-race-3-salman-khan.png"
+      },
+      {
+        id:2,
+        src:"https://w7.pngwing.com/pngs/771/120/png-transparent-salman-khan-tiger-zinda-hai-summer-sunglasses-tshirt-blue-desktop-wallpaper-thumbnail.png"
+      }
+    ]
   }
   ]
   const startWebcam = async () => {
@@ -43,15 +55,14 @@ export default function Canvas() {
     return Promise.all(
       labels.map(async (label) => {
         const descriptions = [];
-        console.log(label.images[0],"ok");
-        for (let i = 0; i <= label.images.length; i++) {
-          const img = await fetchImage(label.images[i]);
-          const detections = await detectSingleFace(`${img}`)
+        for (let i = 0; i < label.images.length; i++) {
+          const img = await fetchImage(label.images[i].src);
+          const detections = await detectSingleFace(img)
             .withFaceLandmarks()
             .withFaceDescriptor();
           descriptions.push(detections.descriptor);
         }
-        return new LabeledFaceDescriptors(label, descriptions);
+        return new LabeledFaceDescriptors(label.name, descriptions);
       })
     );
   };
