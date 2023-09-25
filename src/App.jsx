@@ -1,11 +1,29 @@
+import { Outlet, createBrowserRouter } from "react-router-dom"
 import "./App.css"
-import Canvas from "./component/Canvas"
+import Navbar from "./component/Navbar"
+import HomePage from "./pages/HomePage"
 
-export default function App(){
+
+const AppLayout = ()=>{
   return(
     <>
-      <h1 className="text-sm">Hello</h1>
-      <Canvas/>
+      <Navbar/>
+      <Outlet/>
     </>
   )
 }
+
+const router = createBrowserRouter([
+  {
+    path:"/",
+    element:<AppLayout/>,
+    children:[
+      {
+        path:"/",
+        element:<HomePage/>
+      }
+    ]
+  }
+])
+
+export default router
