@@ -1,24 +1,24 @@
 export default function Navbar(){
     return (
         <>
-            <div>
-                <nav className="flex justify-between">
-                    <div>
-                        <img src="./assets/logo.svg" alt="" className="h-16"/>
+            <div className="px-8">
+                <nav className="flex justify-between items-center h-20">
+                    <div className="w-52">
+                        <img src="./assets/logo.svg" alt="" className="h-20 cursor-pointer"/>
                     </div>
                     <div>
-                        <ul className="flex justify-between">
-                            <li>How it works</li>
-                            <li>Integration</li>
-                            <li>Who we are</li>
+                        <ul className="flex justify-around h-12 text-slate-500 items-center rounded-3xl w-[35rem] border-[1px] border-solid border-slate-500">
+                            <li className="hover:text-[#843df5] cursor-pointer">How it works</li>
+                            <li className="hover:text-[#843df5] cursor-pointer">Integration</li>
+                            <li className="hover:text-[#843df5] cursor-pointer">Who we are</li>
                         </ul>
                     </div>
-                    <div className="flex ">
+                    <div className="flex w-52 justify-between items-center">
                         <div>
-                            <button>Login</button>
+                            <button className="text-[#843df5] h-10 w-20 rounded-md hover:bg-[#ece8ff]">Login</button>
                         </div>
                         <div>
-                            <button>Product Demo</button>
+                            <button className="h-10 rounded-md px-2 bg-[#843df5] text-white">Product Demo</button>
                         </div>
                     </div>
                 </nav>

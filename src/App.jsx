@@ -2,6 +2,7 @@ import { Outlet, createBrowserRouter } from "react-router-dom"
 import "./App.css"
 import Navbar from "./component/Navbar"
 import HomePage from "./pages/HomePage"
+import Canvas from "./component/Canvas"
 
 
 const AppLayout = ()=>{
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path:"/",
         element:<HomePage/>
+      },
+      {
+        path:"canvas",
+        element:<Canvas/>
       }
     ]
   }

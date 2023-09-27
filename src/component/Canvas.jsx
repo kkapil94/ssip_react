@@ -17,25 +17,141 @@ export default function Canvas() {
   const video = useRef();
   const canvasContainer = useRef();
   const labels = [{
-    name:"kaif",
+    name:"Ronak",
     images:[{
       id:1,
-      src:"https://e7.pngegg.com/pngimages/352/405/png-clipart-woman-wearing-red-top-and-holding-choc-on-chocolate-pack-katrina-kaif-heroine-bollywood-actor-desktop-katrina-kaif-celebrities-black-hair.png"
-    }]
+      src:"https://res.cloudinary.com/dbssa7j9g/image/upload/v1695786904/smart_policing/s4th7qwi3nv3fdj4tr5d.png"
+    },
+    {
+      id:2,
+      src:"https://res.cloudinary.com/dbssa7j9g/image/upload/v1695786904/smart_policing/phomd2tykim3pyy0j4gi.png"
+    },
+    {
+      id:3,
+      src:"https://res.cloudinary.com/dbssa7j9g/image/upload/v1695786904/smart_policing/vnbcgyjwl60tchu4avim.png"
+    }
+  ]
   },
   {
-    name:"salman",
+    name:"Ashish",
     images:[
       {
         id:1,
-        src:"https://www.nicepng.com/png/detail/95-953248_salman-khan-png-image-race-3-salman-khan.png"
+        src:"https://res.cloudinary.com/dbssa7j9g/image/upload/v1695786902/smart_policing/uhheqlckvguuxrgyey5t.png"
       },
       {
         id:2,
-        src:"https://w7.pngwing.com/pngs/771/120/png-transparent-salman-khan-tiger-zinda-hai-summer-sunglasses-tshirt-blue-desktop-wallpaper-thumbnail.png"
+        src:"https://res.cloudinary.com/dbssa7j9g/image/upload/v1695786902/smart_policing/u81n0niaaj7ppoqkc7mv.png"
+      },
+      {
+        id:3,
+        src:"https://res.cloudinary.com/dbssa7j9g/image/upload/v1695786902/smart_policing/mtxfobqvwelmadiwqp58.png"
       }
     ]
-  }
+  },
+  {
+    name:"Ankit Koyani",
+    images:[
+      {
+        id:1,
+        src:"https://res.cloudinary.com/dbssa7j9g/image/upload/v1695790984/ankitSir/syrkulue88rcfois1iwh.png"
+      },
+      {
+        id:2,
+        src:"https://res.cloudinary.com/dbssa7j9g/image/upload/v1695790984/ankitSir/pjod8on5kglx4ewftgfw.png"
+      },
+      {
+        id:3,
+        src:"https://res.cloudinary.com/dbssa7j9g/image/upload/v1695790984/ankitSir/dpkljnbvuaaib2vtrtsb.png"
+      },
+      {
+        id:4,
+        src:"https://res.cloudinary.com/dbssa7j9g/image/upload/v1695790982/ankitSir/sntf73lppczzgb0njle3.png"
+      },
+      {
+        id:5,
+        src:"https://res.cloudinary.com/dbssa7j9g/image/upload/v1695790982/ankitSir/hlqiqnto2zzfv6fsbokv.png"
+      },
+      {
+        id:6,
+        src:"https://res.cloudinary.com/dbssa7j9g/image/upload/v1695790981/ankitSir/igdxom7adukr0nxol8an.png"
+      },
+      {
+        id:7,
+        src:"https://res.cloudinary.com/dbssa7j9g/image/upload/v1695790968/ankitSir/bcpbvjwcpds8jnytsbve.png"
+      },
+      {
+        id:8,
+        src:"https://res.cloudinary.com/dbssa7j9g/image/upload/v1695790966/ankitSir/sljqkmi2vpbphd9mtxvx.png"
+      }
+    ]
+  },
+  {
+    name:"Paresh Chavda",
+    images:[
+      {
+        id:1,
+        src:"https://res.cloudinary.com/dbssa7j9g/image/upload/v1695791451/pareshSir/kegu8ocv1d6z5nx31c9m.png"
+      },
+      {
+        id:2,
+        src:"https://res.cloudinary.com/dbssa7j9g/image/upload/v1695791450/pareshSir/qxuhus1yy2cddeef6fvo.png"
+      },
+      {
+        id:3,
+        src:"https://res.cloudinary.com/dbssa7j9g/image/upload/v1695791449/pareshSir/tns5t9nyjs7wrpiqzjsj.png"
+      },
+      {
+        id:4,
+        src:"https://res.cloudinary.com/dbssa7j9g/image/upload/v1695791445/pareshSir/iwtavamubg4gol1miju0.png"
+      },
+      {
+        id:5,
+        src:"https://res.cloudinary.com/dbssa7j9g/image/upload/v1695791443/pareshSir/oga0ptzfcyweru2wexjv.png"
+      },
+      {
+        id:6,
+        src:"https://res.cloudinary.com/dbssa7j9g/image/upload/v1695791441/pareshSir/skiu7nqxefoyn3ntghda.png"
+      },
+      {
+        id:7,
+        src:"https://res.cloudinary.com/dbssa7j9g/image/upload/v1695791435/pareshSir/muxe1ilfyczpbdh5gtec.png"
+      }
+    ]
+  },
+  // {
+  //   name:"Prince",
+  //   images:[
+  //     {
+  //       id:1,
+  //       src:"https://res.cloudinary.com/dbssa7j9g/image/upload/v1695792287/prince/tsn6rditasv91lm3gdei.png"
+  //     },
+  //     {
+  //       id:2,
+  //       src:"https://res.cloudinary.com/dbssa7j9g/image/upload/v1695792280/prince/w3qisyfeylzldgdhtyus.png"
+  //     },
+  //     {
+  //       id:3,
+  //       src:"https://res.cloudinary.com/dbssa7j9g/image/upload/v1695792278/prince/cjexk9netwb0r1ngoxt7.png"
+  //     },
+  //     {
+  //       id:4,
+  //       src:"https://res.cloudinary.com/dbssa7j9g/image/upload/v1695792278/prince/sercuxwljiik4xealth4.png"
+  //     },
+  //     {
+  //       id:5,
+  //       src:"https://res.cloudinary.com/dbssa7j9g/image/upload/v1695792276/prince/sg2283fmmtbpjpqygtxv.png"
+  //     },
+  //     {
+  //       id:6,
+  //       src:"https://res.cloudinary.com/dbssa7j9g/image/upload/v1695792267/prince/oraih6r4fpeptsm8erdw.png"
+  //     },
+  //     {
+  //       id:7,
+  //       src:"https://res.cloudinary.com/dbssa7j9g/image/upload/v1695792267/prince/nnssfls01kcqcpdml5jj.png"
+  //     }
+  //   ]
+  // }
   ]
   const startWebcam = async () => {
     try {
